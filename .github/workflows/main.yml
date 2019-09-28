@@ -38,10 +38,9 @@ jobs:
         with:
           node-version: v12.x
 
-      - name: build
+      - name: yarn
         run: |
           yarn
-          yarn build
 
       #- name: debug deploy_package
       #  uses: actions/bin/debug@master
