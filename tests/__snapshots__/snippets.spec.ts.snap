@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should error /Users/scott/src/activescott-eslint-config/test-data/snippets/should-error/ctor-accessibility-modifer.ts: /Users/scott/src/activescott-eslint-config/test-data/snippets/should-error/ctor-accessibility-modifer.ts 1`] = `
+exports[`should error should-error/ctor-accessibility-modifer.ts: should-error/ctor-accessibility-modifer.ts 1`] = `
 Object {
   "errorCount": 2,
   "fixableErrorCount": 0,
@@ -45,7 +45,7 @@ Object {
 }
 `;
 
-exports[`should error /Users/scott/src/activescott-eslint-config/test-data/snippets/should-error/ctor-fields-accessibility-modifer.ts: /Users/scott/src/activescott-eslint-config/test-data/snippets/should-error/ctor-fields-accessibility-modifer.ts 1`] = `
+exports[`should error should-error/ctor-fields-accessibility-modifer.ts: should-error/ctor-fields-accessibility-modifer.ts 1`] = `
 Object {
   "errorCount": 1,
   "fixableErrorCount": 0,
@@ -81,7 +81,7 @@ Object {
 }
 `;
 
-exports[`should error /Users/scott/src/activescott-eslint-config/test-data/snippets/should-error/semi.ts: /Users/scott/src/activescott-eslint-config/test-data/snippets/should-error/semi.ts 1`] = `
+exports[`should error should-error/semi.ts: should-error/semi.ts 1`] = `
 Object {
   "errorCount": 1,
   "fixableErrorCount": 1,
@@ -121,7 +121,7 @@ process.stdout.write(\\"hi\\");
 }
 `;
 
-exports[`should error /Users/scott/src/activescott-eslint-config/test-data/snippets/should-pass/ctor-accessibility-modifer.ts: /Users/scott/src/activescott-eslint-config/test-data/snippets/should-pass/ctor-accessibility-modifer.ts 1`] = `
+exports[`should error should-pass/ctor-accessibility-modifer.ts: should-pass/ctor-accessibility-modifer.ts 1`] = `
 Object {
   "errorCount": 0,
   "fixableErrorCount": 0,
@@ -141,7 +141,7 @@ Object {
 }
 `;
 
-exports[`should error /Users/scott/src/activescott-eslint-config/test-data/snippets/should-pass/ctor-fields-accessibility-modifer.ts: /Users/scott/src/activescott-eslint-config/test-data/snippets/should-pass/ctor-fields-accessibility-modifer.ts 1`] = `
+exports[`should error should-pass/ctor-fields-accessibility-modifer.ts: should-pass/ctor-fields-accessibility-modifer.ts 1`] = `
 Object {
   "errorCount": 0,
   "fixableErrorCount": 0,
@@ -161,7 +161,7 @@ Object {
 }
 `;
 
-exports[`should error /Users/scott/src/activescott-eslint-config/test-data/snippets/should-warn/no-console.ts: /Users/scott/src/activescott-eslint-config/test-data/snippets/should-warn/no-console.ts 1`] = `
+exports[`should error should-warn/no-console.ts: should-warn/no-console.ts 1`] = `
 Object {
   "errorCount": 0,
   "fixableErrorCount": 0,

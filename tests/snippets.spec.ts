@@ -1,16 +1,26 @@
 import { readdirSync, Dirent } from "fs"
-import { join } from "path"
+import { join, relative } from "path"
 import { CLIEngine } from "eslint"
 import myConfig from "../src/index"
 
-function getSnippetFiles(dir: string = __dirname): string[] {
+/**
+ * gets snippet files
+ * @param dir the path to get all snippets in recursively.
+ * @param basePath Specify a basepath if you want the returned paths to be relative to this path
+ */
+function getSnippetFiles(
+  dir: string = __dirname,
+  basePath: string = ""
+): string[] {
   const entries: Dirent[] = readdirSync(dir, { withFileTypes: true })
   let snippetPaths: string[] = []
   for (const entry of entries) {
     if (entry.isFile()) {
-      snippetPaths.push(join(dir, entry.name))
+      const fullPath = join(dir, entry.name)
+      const relativePath = basePath ? relative(basePath, fullPath) : fullPath
+      snippetPaths.push(relativePath)
     } else if (entry.isDirectory()) {
-      const kids: string[] = getSnippetFiles(join(dir, entry.name))
+      const kids: string[] = getSnippetFiles(join(dir, entry.name), basePath)
       snippetPaths = snippetPaths.concat(kids)
     } else {
       //console.warn("unexpected file type in snapshots:", entry)
@@ -21,7 +31,7 @@ function getSnippetFiles(dir: string = __dirname): string[] {
 
 const snippetBase = join(__dirname, "..", "test-data", "snippets")
 
-test.each(getSnippetFiles(join(snippetBase, "should-error")))(
+test.each(getSnippetFiles(join(snippetBase, "should-error"), snippetBase))(
   "should error %s",
   snippetFile => {
     const result = lint(snippetFile)
@@ -31,7 +41,7 @@ test.each(getSnippetFiles(join(snippetBase, "should-error")))(
   }
 )
 
-test.each(getSnippetFiles(join(snippetBase, "should-warn")))(
+test.each(getSnippetFiles(join(snippetBase, "should-warn"), snippetBase))(
   "should error %s",
   snippetFile => {
     const result = lint(snippetFile)
@@ -41,7 +51,7 @@ test.each(getSnippetFiles(join(snippetBase, "should-warn")))(
   }
 )
 
-test.each(getSnippetFiles(join(snippetBase, "should-pass")))(
+test.each(getSnippetFiles(join(snippetBase, "should-pass"), snippetBase))(
   "should error %s",
   snippetFile => {
     const result = lint(snippetFile)
@@ -58,5 +68,6 @@ function lint(snippetFile): CLIEngine.LintReport {
     ignore: false,
     baseConfig: myConfig
   })
-  return cli.executeOnFiles([snippetFile])
+  const fullPath = join(snippetBase, snippetFile)
+  return cli.executeOnFiles([fullPath])
 }
