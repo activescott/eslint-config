@@ -32,4 +32,3 @@ Then, in your project that wants to use your shareable config, type:
 # Todo
 
 - License: https://choosealicense.com/licenses/mit/
-- remove the --dry-run on semantic-release
