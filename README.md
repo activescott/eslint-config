@@ -30,5 +30,4 @@ Then, in your project that wants to use your shareable config, type:
     yarn link @activescott/eslint-config
 
 # Todo
-
-- License: https://choosealicense.com/licenses/mit/
+- build status
