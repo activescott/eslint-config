@@ -23,9 +23,9 @@ jobs:
           yarn
           yarn build
 
-      #- name: test package
-      #  run: |
-      #    yarn test
+      - name: test package
+        run: |
+          yarn test
 
   deploy_package:
     needs: build_and_test
