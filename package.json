@@ -43,7 +43,7 @@
     "lint": "./node_modules/.bin/prettier -l \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && yarn run eslint",
     "eslint": "./node_modules/.bin/eslint . --ext .ts",
     "lint-fix": "./node_modules/.bin/prettier --write \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && yarn run eslint --fix",
-    "test": "./node_modules/.bin/jest --all",
+    "test": "./node_modules/.bin/jest --all --ci",
     "dev": "./node_modules/.bin/jest --watch",
     "pretest": "yarn run lint",
     "prepublishOnly": "yarn run lint && yarn run build"
