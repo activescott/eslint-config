@@ -30,4 +30,5 @@ Then, in your project that wants to use your shareable config, type:
     yarn link @activescott/eslint-config
 
 # Todo
+
 - build status
