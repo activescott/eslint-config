@@ -1,5 +1,7 @@
 # @activescott/eslint-config
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/activescott/eslint-config.svg)](https://greenkeeper.io/)
+
 This is [@activescott's](https://github.com/activescott/) [sharable config](https://eslint.org/docs/developer-guide/shareable-configs) for ESLint. The Default config is for TypeScript. Multiple config may be added to this package in the future as described at https://eslint.org/docs/developer-guide/shareable-configs#sharing-multiple-configs
 
 # Usage
