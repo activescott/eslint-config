@@ -31,6 +31,4 @@ Then, in your project that wants to use your shareable config, type:
 
 # Todo
 
-- GitHub Actions publisher
-- Add unit test
 - License: https://choosealicense.com/licenses/mit/

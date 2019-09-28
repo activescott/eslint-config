@@ -9,6 +9,9 @@
     "yarn": "^1.17.3"
   },
   "main": "dist/cjs/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist/**/*",
     ".eslintrc.yaml"
@@ -21,13 +24,17 @@
   },
   "devDependencies": {
     "@semantic-release/github": "5.5.0-beta.1",
+    "@types/eslint": "^6.1.1",
+    "@types/jest": "^24.0.18",
     "@types/node": "^12.7.8",
     "@typescript-eslint/eslint-plugin": "^2.3.1",
     "@typescript-eslint/parser": "^2.3.1",
     "eslint": "^6.4.0",
     "eslint-config-prettier": "^6.3.0",
+    "jest": "^24.9.0",
     "prettier": "^1.18.2",
     "semantic-release": "16.0.0-beta.23",
+    "ts-jest": "^24.1.0",
     "typescript": "^3.6.3"
   },
   "dependencies": {
@@ -39,7 +46,8 @@
     "lint": "./node_modules/.bin/prettier -l \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && yarn run eslint",
     "eslint": "./node_modules/.bin/eslint . --ext .ts",
     "lint-fix": "./node_modules/.bin/prettier --write \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && yarn run eslint --fix",
-    "test": "echo no tests; lint just ran",
+    "test": "./node_modules/.bin/jest --all --ci",
+    "dev": "./node_modules/.bin/jest --watch",
     "pretest": "yarn run lint",
     "prepublishOnly": "yarn run lint && yarn run build"
   }

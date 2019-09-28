@@ -23,9 +23,9 @@ jobs:
           yarn
           yarn build
 
-      #- name: test package
-      #  run: |
-      #    yarn test
+      - name: test package
+        run: |
+          yarn test
 
   deploy_package:
     needs: build_and_test
@@ -38,10 +38,9 @@ jobs:
         with:
           node-version: v12.x
 
-      - name: build
+      - name: yarn
         run: |
           yarn
-          yarn build
 
       #- name: debug deploy_package
       #  uses: actions/bin/debug@master
@@ -51,4 +50,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          ./node_modules/.bin/semantic-release --dry-run
+          ./node_modules/.bin/semantic-release

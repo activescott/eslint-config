@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should error should-error/ctor-accessibility-modifer.ts: should-error/ctor-accessibility-modifer.ts 1`] = `
+Object {
+  "errorCount": 2,
+  "fixableErrorCount": 0,
+  "fixableWarningCount": 0,
+  "results": Array [
+    Object {
+      "errorCount": 2,
+      "filePath": "should-error/ctor-accessibility-modifer.ts",
+      "fixableErrorCount": 0,
+      "fixableWarningCount": 0,
+      "messages": Array [
+        Object {
+          "column": 3,
+          "endColumn": 19,
+          "endLine": 2,
+          "line": 2,
+          "message": "Missing accessibility modifier on method definition constructor.",
+          "messageId": "missingAccessibility",
+          "nodeType": "MethodDefinition",
+          "ruleId": "@typescript-eslint/explicit-member-accessibility",
+          "severity": 2,
+        },
+        Object {
+          "column": 17,
+          "line": 2,
+          "message": "Unexpected empty constructor.",
+          "messageId": "unexpected",
+          "nodeType": "FunctionExpression",
+          "ruleId": "@typescript-eslint/no-empty-function",
+          "severity": 2,
+        },
+      ],
+      "source": "export class TestClass {
+  constructor() {}
+}
+",
+      "warningCount": 0,
+    },
+  ],
+  "usedDeprecatedRules": Array [],
+  "warningCount": 0,
+}
+`;
+
+exports[`should error should-error/ctor-fields-accessibility-modifer.ts: should-error/ctor-fields-accessibility-modifer.ts 1`] = `
+Object {
+  "errorCount": 1,
+  "fixableErrorCount": 0,
+  "fixableWarningCount": 0,
+  "results": Array [
+    Object {
+      "errorCount": 1,
+      "filePath": "should-error/ctor-fields-accessibility-modifer.ts",
+      "fixableErrorCount": 0,
+      "fixableWarningCount": 0,
+      "messages": Array [
+        Object {
+          "column": 22,
+          "endColumn": 48,
+          "endLine": 2,
+          "line": 2,
+          "message": "Missing accessibility modifier on parameter property someField.",
+          "messageId": "missingAccessibility",
+          "nodeType": "TSParameterProperty",
+          "ruleId": "@typescript-eslint/explicit-member-accessibility",
+          "severity": 2,
+        },
+      ],
+      "source": "export class TestClass {
+  public constructor(readonly someField: string) {}
+}
+",
+      "warningCount": 0,
+    },
+  ],
+  "usedDeprecatedRules": Array [],
+  "warningCount": 0,
+}
+`;
+
+exports[`should error should-error/semi.ts: should-error/semi.ts 1`] = `
+Object {
+  "errorCount": 1,
+  "fixableErrorCount": 1,
+  "fixableWarningCount": 0,
+  "results": Array [
+    Object {
+      "errorCount": 1,
+      "filePath": "should-error/semi.ts",
+      "fixableErrorCount": 1,
+      "fixableWarningCount": 0,
+      "messages": Array [
+        Object {
+          "column": 27,
+          "fix": Object {
+            "range": Array [
+              56,
+              58,
+            ],
+            "text": ")",
+          },
+          "line": 3,
+          "message": "Extra semicolon.",
+          "nodeType": "ExpressionStatement",
+          "ruleId": "semi",
+          "severity": 2,
+        },
+      ],
+      "source": "import process from \\"process\\"
+
+process.stdout.write(\\"hi\\");
+",
+      "warningCount": 0,
+    },
+  ],
+  "usedDeprecatedRules": Array [],
+  "warningCount": 0,
+}
+`;
+
+exports[`should error should-pass/ctor-accessibility-modifer.ts: should-pass/ctor-accessibility-modifer.ts 1`] = `
+Object {
+  "errorCount": 0,
+  "fixableErrorCount": 0,
+  "fixableWarningCount": 0,
+  "results": Array [
+    Object {
+      "errorCount": 0,
+      "filePath": "should-pass/ctor-accessibility-modifer.ts",
+      "fixableErrorCount": 0,
+      "fixableWarningCount": 0,
+      "messages": Array [],
+      "warningCount": 0,
+    },
+  ],
+  "usedDeprecatedRules": Array [],
+  "warningCount": 0,
+}
+`;
+
+exports[`should error should-pass/ctor-fields-accessibility-modifer.ts: should-pass/ctor-fields-accessibility-modifer.ts 1`] = `
+Object {
+  "errorCount": 0,
+  "fixableErrorCount": 0,
+  "fixableWarningCount": 0,
+  "results": Array [
+    Object {
+      "errorCount": 0,
+      "filePath": "should-pass/ctor-fields-accessibility-modifer.ts",
+      "fixableErrorCount": 0,
+      "fixableWarningCount": 0,
+      "messages": Array [],
+      "warningCount": 0,
+    },
+  ],
+  "usedDeprecatedRules": Array [],
+  "warningCount": 0,
+}
+`;
+
+exports[`should error should-warn/no-console.ts: should-warn/no-console.ts 1`] = `
+Object {
+  "errorCount": 0,
+  "fixableErrorCount": 0,
+  "fixableWarningCount": 0,
+  "results": Array [
+    Object {
+      "errorCount": 0,
+      "filePath": "should-warn/no-console.ts",
+      "fixableErrorCount": 0,
+      "fixableWarningCount": 0,
+      "messages": Array [
+        Object {
+          "column": 1,
+          "endColumn": 12,
+          "endLine": 1,
+          "line": 1,
+          "message": "Unexpected console statement.",
+          "messageId": "unexpected",
+          "nodeType": "MemberExpression",
+          "ruleId": "no-console",
+          "severity": 1,
+        },
+      ],
+      "source": "console.log(\\"hi\\")
+",
+      "warningCount": 1,
+    },
+  ],
+  "usedDeprecatedRules": Array [],
+  "warningCount": 1,
+}
+`;

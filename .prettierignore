@@ -3,3 +3,4 @@ coverage/
 dist/
 docs/todo.md
 /example/main.js
+test-data/
