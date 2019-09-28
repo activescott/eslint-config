@@ -1,0 +1,46 @@
+{
+  "name": "@activescott/eslint-config",
+  "version": "0.0.0",
+  "description": "An ESLint sharable config for TypeScript.",
+  "author": "Scott Willeke <scott@willeke.com>",
+  "license": "MIT",
+  "engines": {
+    "node": "^10 || ^12",
+    "yarn": "^1.17.3"
+  },
+  "main": "dist/cjs/index.js",
+  "files": [
+    "dist/**/*",
+    ".eslintrc.yaml"
+  ],
+  "peerDependencies": {
+    "@typescript-eslint/eslint-plugin": ">=2.3.1",
+    "@typescript-eslint/parser": ">=2.3.1",
+    "eslint": ">=6.4",
+    "eslint-config-prettier": ">=6.3.0"
+  },
+  "devDependencies": {
+    "@semantic-release/github": "5.5.0-beta.1",
+    "@types/node": "^12.7.8",
+    "@typescript-eslint/eslint-plugin": "^2.3.1",
+    "@typescript-eslint/parser": "^2.3.1",
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "prettier": "^1.18.2",
+    "semantic-release": "16.0.0-beta.23",
+    "typescript": "^3.6.3"
+  },
+  "dependencies": {
+    "js-yaml": "^3.13.1"
+  },
+  "scripts": {
+    "build:cjs": "rm -rfd ./dist/cjs; ./node_modules/.bin/tsc --project tsconfig.cjs.json",
+    "build": "rm -rfd ./dist && yarn run build:cjs",
+    "lint": "./node_modules/.bin/prettier -l \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && yarn run eslint",
+    "eslint": "./node_modules/.bin/eslint . --ext .ts",
+    "lint-fix": "./node_modules/.bin/prettier --write \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && yarn run eslint --fix",
+    "test": "echo no tests; lint just ran",
+    "pretest": "yarn run lint",
+    "prepublishOnly": "yarn run lint && yarn run build"
+  }
+}

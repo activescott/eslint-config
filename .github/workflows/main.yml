@@ -1,0 +1,54 @@
+name: main
+
+on: [push]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: build package
+        run: |
+          yarn
+          yarn build
+
+      #- name: test package
+      #  run: |
+      #    yarn test
+
+  deploy_package:
+    needs: build_and_test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Use Node.js v12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: v12.x
+
+      - name: build
+        run: |
+          yarn
+          yarn build
+
+      #- name: debug deploy_package
+      #  uses: actions/bin/debug@master
+
+      - name: deploy via semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          ./node_modules/.bin/semantic-release --dry-run
