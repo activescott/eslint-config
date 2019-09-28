@@ -11,7 +11,7 @@ This is [@activescott's](https://github.com/activescott/) [sharable config](http
 Add the following dependencies to your project:
 
 ```
-yarn add --dev eslint @activescott/eslint-config @typescript-eslint/eslint-plugin
+yarn add --dev @activescott/eslint-config @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier
 ```
 
 Create a `.eslintrc.yaml` file in the root with the following content:
