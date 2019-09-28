@@ -8,7 +8,7 @@ Object {
   "results": Array [
     Object {
       "errorCount": 2,
-      "filePath": "/Users/scott/src/activescott-eslint-config/test-data/snippets/should-error/ctor-accessibility-modifer.ts",
+      "filePath": "should-error/ctor-accessibility-modifer.ts",
       "fixableErrorCount": 0,
       "fixableWarningCount": 0,
       "messages": Array [
@@ -53,7 +53,7 @@ Object {
   "results": Array [
     Object {
       "errorCount": 1,
-      "filePath": "/Users/scott/src/activescott-eslint-config/test-data/snippets/should-error/ctor-fields-accessibility-modifer.ts",
+      "filePath": "should-error/ctor-fields-accessibility-modifer.ts",
       "fixableErrorCount": 0,
       "fixableWarningCount": 0,
       "messages": Array [
@@ -89,7 +89,7 @@ Object {
   "results": Array [
     Object {
       "errorCount": 1,
-      "filePath": "/Users/scott/src/activescott-eslint-config/test-data/snippets/should-error/semi.ts",
+      "filePath": "should-error/semi.ts",
       "fixableErrorCount": 1,
       "fixableWarningCount": 0,
       "messages": Array [
@@ -129,7 +129,7 @@ Object {
   "results": Array [
     Object {
       "errorCount": 0,
-      "filePath": "/Users/scott/src/activescott-eslint-config/test-data/snippets/should-pass/ctor-accessibility-modifer.ts",
+      "filePath": "should-pass/ctor-accessibility-modifer.ts",
       "fixableErrorCount": 0,
       "fixableWarningCount": 0,
       "messages": Array [],
@@ -149,7 +149,7 @@ Object {
   "results": Array [
     Object {
       "errorCount": 0,
-      "filePath": "/Users/scott/src/activescott-eslint-config/test-data/snippets/should-pass/ctor-fields-accessibility-modifer.ts",
+      "filePath": "should-pass/ctor-fields-accessibility-modifer.ts",
       "fixableErrorCount": 0,
       "fixableWarningCount": 0,
       "messages": Array [],
@@ -169,7 +169,7 @@ Object {
   "results": Array [
     Object {
       "errorCount": 0,
-      "filePath": "/Users/scott/src/activescott-eslint-config/test-data/snippets/should-warn/no-console.ts",
+      "filePath": "should-warn/no-console.ts",
       "fixableErrorCount": 0,
       "fixableWarningCount": 0,
       "messages": Array [

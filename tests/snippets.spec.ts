@@ -69,5 +69,11 @@ function lint(snippetFile): CLIEngine.LintReport {
     baseConfig: myConfig
   })
   const fullPath = join(snippetBase, snippetFile)
-  return cli.executeOnFiles([fullPath])
+  const report = cli.executeOnFiles([fullPath])
+  return removeFilePaths(report)
+}
+
+function removeFilePaths(report: CLIEngine.LintReport): CLIEngine.LintReport {
+  report.results.forEach(p => (p.filePath = relative(snippetBase, p.filePath)))
+  return report
 }
