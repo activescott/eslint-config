@@ -58,3 +58,8 @@ overrides:
         - off
       no-magic-numbers:
         - off
+  - files: "**/*.js"
+    # https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-function-return-type.md#configuring-in-a-mixed-jsts-codebase
+    rules:
+      "@typescript-eslint/explicit-function-return-type":
+        - off

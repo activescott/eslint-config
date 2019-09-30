@@ -29,7 +29,7 @@ printf "node_modules/\n/dist/\n/.next/\n.nyc_output/\ncoverage/\n" | tee .eslint
 ```json
 {
   "scripts": {
-    "eslint": "./node_modules/.bin/eslint . --ext .ts",
+    "eslint": "./node_modules/.bin/eslint .",
     "lint": "./node_modules/.bin/prettier -l \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && yarn run eslint",
     "lint-fix": "./node_modules/.bin/prettier --write \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && yarn run eslint --fix"
   }

@@ -81,6 +81,43 @@ Object {
 }
 `;
 
+exports[`should error should-error/no-undef-module.js: should-error/no-undef-module.js 1`] = `
+Object {
+  "errorCount": 1,
+  "fixableErrorCount": 0,
+  "fixableWarningCount": 0,
+  "results": Array [
+    Object {
+      "errorCount": 1,
+      "filePath": "should-error/no-undef-module.js",
+      "fixableErrorCount": 0,
+      "fixableWarningCount": 0,
+      "messages": Array [
+        Object {
+          "column": 1,
+          "endColumn": 7,
+          "endLine": 2,
+          "line": 2,
+          "message": "'module' is not defined.",
+          "messageId": "undef",
+          "nodeType": "Identifier",
+          "ruleId": "no-undef",
+          "severity": 2,
+        },
+      ],
+      "source": "// here \\"module.exports\\" should fail since no env is declared
+module.exports = {
+  poweredByHeader: false,
+}
+",
+      "warningCount": 0,
+    },
+  ],
+  "usedDeprecatedRules": Array [],
+  "warningCount": 0,
+}
+`;
+
 exports[`should error should-error/semi.ts: should-error/semi.ts 1`] = `
 Object {
   "errorCount": 1,
@@ -150,6 +187,26 @@ Object {
     Object {
       "errorCount": 0,
       "filePath": "should-pass/ctor-fields-accessibility-modifer.ts",
+      "fixableErrorCount": 0,
+      "fixableWarningCount": 0,
+      "messages": Array [],
+      "warningCount": 0,
+    },
+  ],
+  "usedDeprecatedRules": Array [],
+  "warningCount": 0,
+}
+`;
+
+exports[`should error should-pass/next.config.js: should-pass/next.config.js 1`] = `
+Object {
+  "errorCount": 0,
+  "fixableErrorCount": 0,
+  "fixableWarningCount": 0,
+  "results": Array [
+    Object {
+      "errorCount": 0,
+      "filePath": "should-pass/next.config.js",
       "fixableErrorCount": 0,
       "fixableWarningCount": 0,
       "messages": Array [],
