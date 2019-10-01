@@ -42,7 +42,7 @@ test.each(getSnippetFiles(join(snippetBase, "should-error"), snippetBase))(
 )
 
 test.each(getSnippetFiles(join(snippetBase, "should-warn"), snippetBase))(
-  "should error %s",
+  "should warn %s",
   snippetFile => {
     const result = lint(snippetFile)
     expect(result.errorCount).toEqual(0)
@@ -52,7 +52,7 @@ test.each(getSnippetFiles(join(snippetBase, "should-warn"), snippetBase))(
 )
 
 test.each(getSnippetFiles(join(snippetBase, "should-pass"), snippetBase))(
-  "should error %s",
+  "should pass %s",
   snippetFile => {
     const result = lint(snippetFile)
     // result.results.forEach(r => console.log("result:", r))

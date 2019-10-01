@@ -158,7 +158,7 @@ process.stdout.write(\\"hi\\");
 }
 `;
 
-exports[`should error should-pass/ctor-accessibility-modifer.ts: should-pass/ctor-accessibility-modifer.ts 1`] = `
+exports[`should pass should-pass/ctor-accessibility-modifer.ts: should-pass/ctor-accessibility-modifer.ts 1`] = `
 Object {
   "errorCount": 0,
   "fixableErrorCount": 0,
@@ -178,7 +178,7 @@ Object {
 }
 `;
 
-exports[`should error should-pass/ctor-fields-accessibility-modifer.ts: should-pass/ctor-fields-accessibility-modifer.ts 1`] = `
+exports[`should pass should-pass/ctor-fields-accessibility-modifer.ts: should-pass/ctor-fields-accessibility-modifer.ts 1`] = `
 Object {
   "errorCount": 0,
   "fixableErrorCount": 0,
@@ -198,7 +198,7 @@ Object {
 }
 `;
 
-exports[`should error should-pass/next.config.js: should-pass/next.config.js 1`] = `
+exports[`should pass should-pass/next.config.js: should-pass/next.config.js 1`] = `
 Object {
   "errorCount": 0,
   "fixableErrorCount": 0,
@@ -218,7 +218,7 @@ Object {
 }
 `;
 
-exports[`should error should-warn/no-console.ts: should-warn/no-console.ts 1`] = `
+exports[`should warn should-warn/no-console.ts: should-warn/no-console.ts 1`] = `
 Object {
   "errorCount": 0,
   "fixableErrorCount": 0,
