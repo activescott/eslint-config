@@ -8,7 +8,7 @@ This is [@activescott's](https://github.com/activescott/) [sharable config](http
 
 Multiple config may be added to this package in the future as described at https://eslint.org/docs/developer-guide/shareable-configs#sharing-multiple-configs
 
-# Usage
+## Usage
 
 **Step 1**: Add the following dependencies to your project:
 
@@ -29,7 +29,7 @@ printf "node_modules/\n/dist/\n/.next/\n.nyc_output/\ncoverage/\n" | tee .eslint
 ```json
 {
   "scripts": {
-    "eslint": "./node_modules/.bin/eslint .",
+    "eslint": "./node_modules/.bin/eslint . --ext ts,tsx,js,jsx",
     "lint": "./node_modules/.bin/prettier -l \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && yarn run eslint",
     "lint-fix": "./node_modules/.bin/prettier --write \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && yarn run eslint --fix"
   }
@@ -38,7 +38,18 @@ printf "node_modules/\n/dist/\n/.next/\n.nyc_output/\ncoverage/\n" | tee .eslint
 
 See https://eslint.org/docs/user-guide/configuring for more information.
 
-# Local Testing
+## Notes
+
+### React
+When using React add `plugin:react/recommended`:
+
+```
+extends:
+  - ...
+  - "plugin:react/recommended"
+```
+
+## Local Testing
 
 You can also test your shareable config on your computer before publishing by linking your module globally. Type:
 
