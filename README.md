@@ -41,7 +41,8 @@ See https://eslint.org/docs/user-guide/configuring for more information.
 ## Notes
 
 ### React
-When using React add `plugin:react/recommended`:
+
+When using React add `plugin:react/recommended` from package `eslint-plugin-react`:
 
 ```
 extends:
