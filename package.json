@@ -5,7 +5,7 @@
   "author": "Scott Willeke <scott@willeke.com>",
   "license": "MIT",
   "engines": {
-    "node": "^10 || ^12",
+    "node": "^10 || >=12",
     "yarn": "^1.17.3"
   },
   "main": "dist/cjs/index.js",
