@@ -132,6 +132,8 @@ Object {
       "messages": Array [
         Object {
           "column": 27,
+          "endColumn": 28,
+          "endLine": 3,
           "fix": Object {
             "range": Array [
               56,
