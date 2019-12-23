@@ -23,17 +23,15 @@
     "eslint-config-prettier": ">=6.3.0"
   },
   "devDependencies": {
-    "@semantic-release/github": "5.5.5",
     "@types/eslint": "^6.1.1",
     "@types/jest": "^24.0.18",
-    "@types/node": "^12.12.20",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
     "@typescript-eslint/parser": "^2.8.0",
     "eslint": "^6.7.0",
     "eslint-config-prettier": "^6.7.0",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
-    "semantic-release": "16.0.0-beta.23",
+    "semantic-release": ">=16.0.0-beta",
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.3"
   },
