@@ -32,7 +32,7 @@
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
     "semantic-release": ">=16.0.0-beta",
-    "ts-jest": "^24.1.0",
+    "ts-jest": "^25.1.0",
     "typescript": "^3.6.3"
   },
   "dependencies": {
