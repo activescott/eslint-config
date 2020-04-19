@@ -59,6 +59,17 @@ Then, in your project that wants to use your shareable config, type:
 
     yarn link @activescott/eslint-config
 
+## Release Process (Deploying to NPM) 🚀
+
+We use [semantic-release](https://github.com/semantic-release/semantic-release) to consistently release [semver](https://semver.org/)-compatible versions. This project deploys to multiple [npm distribution tags](https://docs.npmjs.com/cli/dist-tag). Each of the below branches correspond to the following npm distribution tags:
+
+| branch | npm distribution tag |
+| ------ | -------------------- |
+| master | latest               |
+| beta   | beta                 |
+
+To trigger a release use a Conventional Commit following [Angular Commit Message Conventions](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines) on one of the above branches.
+
 # Todo
 
 - build status
