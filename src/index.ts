@@ -10,10 +10,10 @@ function getPath(): string {
     // if we running from /dist/es or dist/cjs
     join(__dirname, "..", "..", ".eslintrc.yaml"),
     // if we're running from the /src directory directly
-    join(__dirname, "..", ".eslintrc.yaml")
+    join(__dirname, "..", ".eslintrc.yaml"),
   ]
 
-  const found = candidates.filter(p => existsSync(p))
+  const found = candidates.filter((p) => existsSync(p))
   if (found.length < 1) {
     throw new Error("Failed to locate .eslintrc.yaml in expected path")
   }

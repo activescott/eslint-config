@@ -33,7 +33,7 @@ const snippetBase = join(__dirname, "..", "test-data", "snippets")
 
 test.each(getSnippetFiles(join(snippetBase, "should-error"), snippetBase))(
   "should error %s",
-  snippetFile => {
+  (snippetFile) => {
     const result = lint(snippetFile)
     expect(result.errorCount).toBeGreaterThan(0)
     expect(result.warningCount).toEqual(0)
@@ -43,7 +43,7 @@ test.each(getSnippetFiles(join(snippetBase, "should-error"), snippetBase))(
 
 test.each(getSnippetFiles(join(snippetBase, "should-warn"), snippetBase))(
   "should warn %s",
-  snippetFile => {
+  (snippetFile) => {
     const result = lint(snippetFile)
     expect(result.errorCount).toEqual(0)
     expect(result.warningCount).toBeGreaterThan(0)
@@ -53,7 +53,7 @@ test.each(getSnippetFiles(join(snippetBase, "should-warn"), snippetBase))(
 
 test.each(getSnippetFiles(join(snippetBase, "should-pass"), snippetBase))(
   "should pass %s",
-  snippetFile => {
+  (snippetFile) => {
     const result = lint(snippetFile)
     // result.results.forEach(r => console.log("result:", r))
     expect(result.errorCount).toEqual(0)
@@ -66,7 +66,7 @@ function lint(snippetFile): CLIEngine.LintReport {
   const cli = new CLIEngine({
     useEslintrc: false,
     ignore: false,
-    baseConfig: myConfig
+    baseConfig: myConfig,
   })
   const fullPath = join(snippetBase, snippetFile)
   const report = cli.executeOnFiles([fullPath])
@@ -74,6 +74,8 @@ function lint(snippetFile): CLIEngine.LintReport {
 }
 
 function removeFilePaths(report: CLIEngine.LintReport): CLIEngine.LintReport {
-  report.results.forEach(p => (p.filePath = relative(snippetBase, p.filePath)))
+  report.results.forEach(
+    (p) => (p.filePath = relative(snippetBase, p.filePath))
+  )
   return report
 }
