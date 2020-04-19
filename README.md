@@ -2,7 +2,6 @@
 
 [![npm version](https://badge.fury.io/js/%40activescott%2Feslint-config.svg)](https://www.npmjs.com/package/@activescott/eslint-config)
 [![Build Status](https://github.com/activescott/eslint-config/workflows/main/badge.svg)](https://github.com/activescott/eslint-config/actions)
-[![Greenkeeper badge](https://badges.greenkeeper.io/activescott/eslint-config.svg)](https://greenkeeper.io/)
 
 This is [@activescott's](https://github.com/activescott/) [sharable config](https://eslint.org/docs/developer-guide/shareable-configs) for ESLint. The default is optimized for TypeScript. It does prettify other files too including JavaScript, Markdown, etc.
 
@@ -60,6 +59,13 @@ Then, in your project that wants to use your shareable config, type:
 
     yarn link @activescott/eslint-config
 
-# Todo
+## Release Process (Deploying to NPM) 🚀
 
-- build status
+We use [semantic-release](https://github.com/semantic-release/semantic-release) to consistently release [semver](https://semver.org/)-compatible versions. This project deploys to multiple [npm distribution tags](https://docs.npmjs.com/cli/dist-tag). Each of the below branches correspond to the following npm distribution tags:
+
+| branch | npm distribution tag |
+| ------ | -------------------- |
+| master | latest               |
+| beta   | beta                 |
+
+To trigger a release use a Conventional Commit following [Angular Commit Message Conventions](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines) on one of the above branches.
