@@ -2,7 +2,6 @@
 
 [![npm version](https://badge.fury.io/js/%40activescott%2Feslint-config.svg)](https://www.npmjs.com/package/@activescott/eslint-config)
 [![Build Status](https://github.com/activescott/eslint-config/workflows/main/badge.svg)](https://github.com/activescott/eslint-config/actions)
-[![Greenkeeper badge](https://badges.greenkeeper.io/activescott/eslint-config.svg)](https://greenkeeper.io/)
 
 This is [@activescott's](https://github.com/activescott/) [sharable config](https://eslint.org/docs/developer-guide/shareable-configs) for ESLint. The default is optimized for TypeScript. It does prettify other files too including JavaScript, Markdown, etc.
 
