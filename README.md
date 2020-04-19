@@ -69,7 +69,3 @@ We use [semantic-release](https://github.com/semantic-release/semantic-release) 
 | beta   | beta                 |
 
 To trigger a release use a Conventional Commit following [Angular Commit Message Conventions](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines) on one of the above branches.
-
-# Todo
-
-- build status
