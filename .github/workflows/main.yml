@@ -20,12 +20,12 @@ jobs:
 
       - name: build package
         run: |
-          yarn
-          yarn build
+          npm install
+          npm run build
 
       - name: test package
         run: |
-          yarn test
+          npm run test
 
   deploy_package:
     needs: build_and_test
@@ -38,9 +38,9 @@ jobs:
         with:
           node-version: v12.x
 
-      - name: yarn
+      - name: npm
         run: |
-          yarn
+          npm ci
 
       #- name: debug deploy_package
       #  uses: actions/bin/debug@master
