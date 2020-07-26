@@ -12,7 +12,7 @@ Multiple config may be added to this package in the future as described at https
 **Step 1**: Add the following dependencies to your project:
 
 ```sh
-yarn add --dev @activescott/eslint-config @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier prettier
+npm install --save-dev @activescott/eslint-config @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier prettier
 ```
 
 **Step 2**: Enter the following to create a `.eslintrc.yaml` file in the root with the right content:
@@ -29,8 +29,8 @@ printf "node_modules/\n/dist/\n/.next/\n.nyc_output/\ncoverage/\n" | tee .eslint
 {
   "scripts": {
     "eslint": "./node_modules/.bin/eslint . --ext ts,tsx,js,jsx",
-    "lint": "./node_modules/.bin/prettier -l \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && yarn run eslint",
-    "lint-fix": "./node_modules/.bin/prettier --write \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && yarn run eslint --fix"
+    "lint": "./node_modules/.bin/prettier -l \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && npm run eslint",
+    "lint-fix": "./node_modules/.bin/prettier --write \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && npm run eslint --fix"
   }
 }
 ```
@@ -53,11 +53,11 @@ extends:
 
 You can also test your shareable config on your computer before publishing by linking your module globally. Type:
 
-    yarn link
+    npm link
 
 Then, in your project that wants to use your shareable config, type:
 
-    yarn link @activescott/eslint-config
+    npm link @activescott/eslint-config
 
 ## Release Process (Deploying to NPM) 🚀
 

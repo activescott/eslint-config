@@ -5,8 +5,7 @@
   "author": "Scott Willeke <scott@willeke.com>",
   "license": "MIT",
   "engines": {
-    "node": "^10 || >=12",
-    "yarn": "^1.17.3"
+    "node": "^10 || >=12"
   },
   "main": "dist/cjs/index.js",
   "publishConfig": {
@@ -40,13 +39,13 @@
   },
   "scripts": {
     "build:cjs": "rm -rfd ./dist/cjs; ./node_modules/.bin/tsc --project tsconfig.cjs.json",
-    "build": "rm -rfd ./dist && yarn run build:cjs",
-    "lint": "./node_modules/.bin/prettier -l \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && yarn run eslint",
+    "build": "rm -rfd ./dist && npm run build:cjs",
+    "lint": "./node_modules/.bin/prettier -l \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && npm run eslint",
     "eslint": "./node_modules/.bin/eslint . --ext .ts",
-    "lint-fix": "./node_modules/.bin/prettier --write \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && yarn run eslint --fix",
+    "lint-fix": "./node_modules/.bin/prettier --write \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && npm run eslint --fix",
     "test": "./node_modules/.bin/jest --all --ci",
     "dev": "./node_modules/.bin/jest --watch",
-    "pretest": "yarn run lint",
-    "prepublishOnly": "yarn run lint && yarn run build"
+    "pretest": "npm run lint",
+    "prepublishOnly": "npm run lint && npm run build"
   }
 }
