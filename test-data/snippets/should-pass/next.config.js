@@ -1,5 +1,4 @@
-/* eslint-env node */
-// here "module.exports" is only allowed due to the environment declaration above.
+// here "module.exports" is allowed due to the override in .eslintrc.yaml
 module.exports = {
   poweredByHeader: false,
   someValue: testFunc()
