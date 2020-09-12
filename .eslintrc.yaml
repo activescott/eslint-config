@@ -63,3 +63,7 @@ overrides:
     rules:
       "@typescript-eslint/explicit-function-return-type": off
       "@typescript-eslint/no-var-requires": off
+    # handles js config files like jest.config.js
+  - files: "*.config.js"
+    rules:
+      "no-undef": off
