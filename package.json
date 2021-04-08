@@ -16,23 +16,23 @@
     ".eslintrc.yaml"
   ],
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.1.0",
-    "@typescript-eslint/parser": "^4.1.0",
-    "eslint": "^7.9.0",
-    "eslint-config-prettier": "^6.11.0"
+    "@typescript-eslint/eslint-plugin": ">=4.21.0",
+    "@typescript-eslint/parser": ">=4.21.0",
+    "eslint": ">=7.23.0",
+    "eslint-config-prettier": ">=8.1.0",
+    "prettier": ">=2.2.1"
   },
   "devDependencies": {
-    "@types/eslint": "^7.2.2",
+    "@types/eslint": "^7.2.8",
     "@types/jest": "^26.0.13",
-    "@typescript-eslint/eslint-plugin": "^4.1.0",
-    "@typescript-eslint/parser": "^4.1.0",
-    "eslint": "^7.9.0",
-    "eslint-config-prettier": "^6.11.0",
+    "@typescript-eslint/eslint-plugin": "^4.21.0",
+    "@typescript-eslint/parser": "^4.21.0",
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^8.1.0",
     "jest": "^26.4.2",
-    "prettier": "^2.1.1",
-    "semantic-release": "^17.1.1",
+    "prettier": "^2.2.1",
     "ts-jest": "^26.3.0",
-    "typescript": "^4.0.2"
+    "typescript": "^4.2.4"
   },
   "dependencies": {
     "js-yaml": "^4.0.0"
