@@ -2,7 +2,7 @@ import yaml from "js-yaml"
 import { readFileSync, existsSync } from "fs"
 import { join } from "path"
 
-const config = yaml.safeLoad(readFileSync(getPath(), "utf8"))
+const config = yaml.load(readFileSync(getPath(), "utf8"))
 export = config
 
 function getPath(): string {
