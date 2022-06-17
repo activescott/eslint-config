@@ -38,13 +38,13 @@
     "js-yaml": "^4.0.0"
   },
   "scripts": {
-    "build:cjs": "rm -rfd ./dist/cjs; ./node_modules/.bin/tsc --project tsconfig.cjs.json",
+    "build:cjs": "rm -rfd ./dist/cjs; tsc --project tsconfig.cjs.json",
     "build": "rm -rfd ./dist && npm run build:cjs",
-    "lint": "./node_modules/.bin/prettier -l \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && npm run eslint",
-    "eslint": "./node_modules/.bin/eslint . --ext .ts",
-    "lint-fix": "./node_modules/.bin/prettier --write \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && npm run eslint --fix",
-    "test": "./node_modules/.bin/jest --all --ci",
-    "dev": "./node_modules/.bin/jest --watch",
+    "lint": "prettier -l \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && npm run eslint",
+    "eslint": "eslint . --ext .ts",
+    "lint-fix": "prettier --write \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && npm run eslint --fix",
+    "test": "jest --all --ci",
+    "dev": "jest --watch",
     "pretest": "npm run lint",
     "prepublishOnly": "npm run lint && npm run build"
   }
