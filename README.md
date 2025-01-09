@@ -12,15 +12,17 @@ Multiple config may be added to this package in the future as described at https
 **Step 1**: Add the following dependencies to your project:
 
 ```sh
-npm install --save-dev @activescott/eslint-config @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier prettier
+npm add -D @activescott/eslint-config@3 typescript-eslint@8.19.1 eslint-plugin-prettier@5.2.1 eslint-plugin-jest@28.10.0 @stylistic/eslint-plugin@2.12.1
 ```
 
-**Step 2**: Enter the following to create a `.eslintrc.yaml` file in the root with the right content:
+**Step 2**: Enter the following to create a `eslint.config.js`, `.prettierrc`, and `.prettierignore` in the root with the right content:
 
 ```sh
-printf "extends:\n  - \"@activescott/eslint-config\"\n" > .eslintrc.yaml
+printf 'import config from "@activescott/eslint-config"
+export default [...config]
+' > eslint.config.js
 printf "semi: false\n" > .prettierrc
-printf "node_modules/\n/dist/\n/.next/\n.nyc_output/\ncoverage/\n" | tee .eslintignore .prettierignore
+printf "node_modules/\n/dist/\n/.next/\n.nyc_output/\ncoverage/\n" | tee .prettierignore
 ```
 
 **Step 3** (optional): Add the following scripts to `package.json`:
@@ -28,9 +30,8 @@ printf "node_modules/\n/dist/\n/.next/\n.nyc_output/\ncoverage/\n" | tee .eslint
 ```json
 {
   "scripts": {
-    "eslint": "eslint . --ext ts,tsx,js,jsx",
-    "lint": "prettier -l \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && npm run eslint",
-    "lint-fix": "prettier --write \"{,!(node_modules)/**/}*.{ts,tsx,md,yml,json,html}\" && npm run eslint --fix"
+    "lint": "eslint",
+    "lint-fix": "eslint --fix"
   }
 }
 ```
@@ -69,3 +70,14 @@ We use [semantic-release](https://github.com/semantic-release/semantic-release) 
 | beta   | beta                 |
 
 To trigger a release use a Conventional Commit following [Angular Commit Message Conventions](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines) on one of the above branches.
+
+## Notes to self
+
+References:
+
+- https://eslint.org/docs/latest/use/configure/configuration-files
+- https://eslint.org/docs/latest/use/configure/parser#configure-a-custom-parser
+- https://typescript-eslint.io/getting-started
+- https://prettier.io/docs/en/integrating-with-linters.html
+- https://github.com/prettier/eslint-plugin-prettier
+- https://eslint.org/docs/latest/extend/shareable-configs

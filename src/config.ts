@@ -1,0 +1,101 @@
+import eslint from "@eslint/js"
+import tseslint, { ConfigWithExtends } from "typescript-eslint"
+import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended"
+import pluginJest from "eslint-plugin-jest"
+import stylistic from "@stylistic/eslint-plugin"
+
+const myJavaScriptAndTypeScriptRules: ConfigWithExtends = {
+  // shouldn't need to specify files: https://eslint.org/docs/latest/use/configure/configuration-files#specifying-files-and-ignores
+  files: ["**/*.{ts,mts,cts}", "**/*.{js,mjs,cjs}"],
+
+  plugins: {
+    "@stylistic": stylistic,
+  },
+
+  rules: {
+    // https://eslint.style/guide/migration#approach-1-migrate-to-single-plugin
+    // "With ESLint Stylistic, you only need one rule to handle both JavaScript and TypeScript:"
+    "@stylistic/semi": ["error", "never"],
+
+    complexity: [
+      "warn",
+      {
+        max: 10,
+      },
+    ],
+
+    "no-eval": ["error"],
+    "no-implied-eval": ["error"],
+
+    "no-magic-numbers": [
+      "warn",
+      {
+        ignore: [0, 1],
+      },
+    ],
+
+    "no-console": ["warn"],
+  },
+}
+
+const myTypeScriptOnlyRules: ConfigWithExtends = {
+  // shouldn't need to specify files: https://eslint.org/docs/latest/use/configure/configuration-files#specifying-files-and-ignores
+  files: ["**/*.{ts,mts,cts}"],
+
+  plugins: {
+    "@stylistic": stylistic,
+  },
+
+  rules: {
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      {
+        allowExpressions: true,
+      },
+    ],
+
+    "@typescript-eslint/member-ordering": ["warn"],
+    "@typescript-eslint/explicit-member-accessibility": ["error"],
+  },
+}
+
+// handles js config files like jest.config.js
+const configFileRules: ConfigWithExtends = {
+  files: ["**/*.config.js"],
+
+  rules: {
+    "no-undef": "off",
+  },
+}
+
+// jest test files:
+const jestFileRules: ConfigWithExtends = {
+  files: ["**/*.spec.ts"],
+  extends: [myJavaScriptAndTypeScriptRules, myTypeScriptOnlyRules],
+
+  plugins: { jest: pluginJest },
+  languageOptions: {
+    globals: pluginJest.environments.globals.globals,
+  },
+
+  rules: {
+    "@typescript-eslint/explicit-function-return-type": ["off"],
+    "no-magic-numbers": ["off"],
+  },
+}
+
+export default tseslint.config([
+  eslint.configs.recommended,
+  tseslint.configs.strict,
+  tseslint.configs.stylistic,
+
+  myJavaScriptAndTypeScriptRules,
+  myTypeScriptOnlyRules,
+
+  configFileRules,
+
+  jestFileRules,
+
+  // add eslint-plugin-prettier/recommended as the LAST item in the configuration array in your eslint.config.js file so that eslint-config-prettier has the opportunity to override other configs:
+  eslintPluginPrettierRecommended,
+])
