@@ -3,6 +3,7 @@ import tseslint, { ConfigWithExtends } from "typescript-eslint"
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended"
 import pluginJest from "eslint-plugin-jest"
 import stylistic from "@stylistic/eslint-plugin"
+import eslintPluginUnicorn from "eslint-plugin-unicorn"
 
 const myJavaScriptAndTypeScriptRules: ConfigWithExtends = {
   // shouldn't need to specify files: https://eslint.org/docs/latest/use/configure/configuration-files#specifying-files-and-ignores
@@ -65,6 +66,7 @@ const configFileRules: ConfigWithExtends = {
 
   rules: {
     "no-undef": "off",
+    "suggestion/export": "off",
   },
 }
 
@@ -81,6 +83,8 @@ const jestFileRules: ConfigWithExtends = {
   rules: {
     "@typescript-eslint/explicit-function-return-type": ["off"],
     "no-magic-numbers": ["off"],
+    // because jest is stupid cjs
+    "unicorn/prefer-module": ["off"],
   },
 }
 
@@ -88,6 +92,7 @@ export default tseslint.config([
   eslint.configs.recommended,
   tseslint.configs.strict,
   tseslint.configs.stylistic,
+  eslintPluginUnicorn.configs["flat/recommended"],
 
   myJavaScriptAndTypeScriptRules,
   myTypeScriptOnlyRules,

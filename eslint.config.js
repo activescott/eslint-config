@@ -14,4 +14,4 @@ const ignores = [
 // add ignores
 const overrideIgnores = (c) => ({ ...c, ignores })
 
-export default tseslint.config(config.map(overrideIgnores))
+export default tseslint.config(config.map((c) => overrideIgnores(c)))
