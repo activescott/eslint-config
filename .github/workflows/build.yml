@@ -47,16 +47,12 @@ jobs:
         with:
           node-version: 20
 
-      - name: npm
-        run: |
-          npm ci
+      - run: npm ci
 
       #- name: debug deploy_package
       #  uses: actions/bin/debug@master
 
-      - name: deploy via semantic-release
+      - run: npx semantic-release@24
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          npx semantic-release@24
