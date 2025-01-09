@@ -21,7 +21,7 @@
     "lint-fix": "eslint --fix",
     "test": "node --experimental-vm-modules ./node_modules/.bin/jest",
     "dev": "jest --watch",
-    "prepublishOnly": "npm run lint && npm run build"
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "eslint": ">= 9",
