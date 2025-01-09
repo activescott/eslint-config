@@ -19,7 +19,16 @@ npm add -D @activescott/eslint-config@3 typescript-eslint@8.19.1 eslint-plugin-p
 
 ```sh
 printf 'import config from "@activescott/eslint-config"
-export default [...config]
+
+// add local project ignores here and they will be applied to all rules
+const ignores = []
+
+const configs = config.map((c) => ({
+  ignores: [...(c.ignores ?? []), ...ignores],
+  ...c,
+}))
+
+export default [...configs]
 ' > eslint.config.js
 printf "semi: false\n" > .prettierrc
 printf "node_modules/\n/dist/\n/.next/\n.nyc_output/\ncoverage/\n" | tee .prettierignore
