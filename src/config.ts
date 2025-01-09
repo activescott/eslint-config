@@ -67,6 +67,7 @@ const configFileRules: ConfigWithExtends = {
   rules: {
     "no-undef": "off",
     "suggestion/export": "off",
+    "unicorn/prefer-module": "off",
   },
 }
 

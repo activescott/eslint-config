@@ -2,10 +2,8 @@ export default {
   preset: "ts-jest",
   testEnvironment: "node",
   setupFiles: [],
-  globals: {
-    "ts-jest": {
-      tsConfig: "tsconfig.jest.json",
-    },
+  transform: {
+    "^.+.spec.ts?$": ["ts-jest", { tsconfig: "tsconfig.jest.json" }],
   },
   collectCoverageFrom: ["src/**/*.ts"],
   testPathIgnorePatterns: ["/node_modules/"],
