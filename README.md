@@ -12,7 +12,7 @@ Multiple config may be added to this package in the future as described at https
 **Step 1**: Add the following dependencies to your project:
 
 ```sh
-npm add -D @activescott/eslint-config@3 typescript-eslint@8.19.1 eslint-plugin-prettier@5.2.1 eslint-plugin-jest@28.10.0 @stylistic/eslint-plugin@2.12.1
+npm add -D @activescott/eslint-config@3 typescript-eslint@8.19.1 eslint-plugin-prettier@5.2.1 eslint-plugin-jest@28.10.0 @stylistic/eslint-plugin@2.12.1 eslint-config-prettier@9.1.0
 ```
 
 **Step 2**: Enter the following to create a `eslint.config.js`, `.prettierrc`, and `.prettierignore` in the root with the right content:
