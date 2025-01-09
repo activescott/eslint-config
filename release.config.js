@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   // https://github.com/semantic-release/semantic-release
   branches: [
     "+([0-9])?(.{+([0-9]),x}).x",
