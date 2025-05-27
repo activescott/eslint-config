@@ -1,5 +1,5 @@
 import eslint from "@eslint/js"
-import tseslint, { ConfigWithExtends } from "typescript-eslint"
+import tseslint, { type ConfigWithExtends } from "typescript-eslint"
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended"
 import pluginJest from "eslint-plugin-jest"
 import stylistic from "@stylistic/eslint-plugin"
@@ -36,6 +36,17 @@ const myJavaScriptAndTypeScriptRules: ConfigWithExtends = {
     ],
 
     "no-console": ["warn"],
+
+    // https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/filename-case.md
+    "unicorn/filename-case": [
+      "error",
+      {
+        cases: {
+          camelCase: true,
+          pascalCase: true,
+        },
+      },
+    ],
   },
 }
 
