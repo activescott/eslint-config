@@ -45,8 +45,11 @@ const myJavaScriptAndTypeScriptRules: ConfigWithExtends = {
           camelCase: true,
           pascalCase: true,
         },
+        ignore: [/\.d\.ts$/],
       },
     ],
+    // I prefer being explicit when returning undefined from a function
+    "unicorn/no-useless-undefined": ["off"],
   },
 }
 
@@ -66,7 +69,7 @@ const myTypeScriptOnlyRules: ConfigWithExtends = {
       },
     ],
 
-    "@typescript-eslint/member-ordering": ["warn"],
+    "@typescript-eslint/member-ordering": ["off"],
     "@typescript-eslint/explicit-member-accessibility": ["error"],
   },
 }
@@ -84,7 +87,7 @@ const configFileRules: ConfigWithExtends = {
 
 // jest test files:
 const jestFileRules: ConfigWithExtends = {
-  files: ["**/*.spec.ts"],
+  files: ["**/*.spec.ts", "**/*.test.ts"],
   extends: [myJavaScriptAndTypeScriptRules, myTypeScriptOnlyRules],
 
   plugins: { jest: pluginJest },

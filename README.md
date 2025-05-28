@@ -90,3 +90,7 @@ References:
 - https://prettier.io/docs/en/integrating-with-linters.html
 - https://github.com/prettier/eslint-plugin-prettier
 - https://eslint.org/docs/latest/extend/shareable-configs
+
+### Todo
+
+- https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-unused-modules.md
