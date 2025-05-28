@@ -1,3 +1,4 @@
+/* eslint-disable no-magic-numbers */
 import eslint from "@eslint/js"
 import tseslint, { type ConfigWithExtends } from "typescript-eslint"
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended"
@@ -7,7 +8,7 @@ import eslintPluginUnicorn from "eslint-plugin-unicorn"
 
 const myJavaScriptAndTypeScriptRules: ConfigWithExtends = {
   // shouldn't need to specify files: https://eslint.org/docs/latest/use/configure/configuration-files#specifying-files-and-ignores
-  files: ["**/*.{ts,mts,cts}", "**/*.{js,mjs,cjs}"],
+  files: ["**/*.{ts,mts,cts,tsx}", "**/*.{js,mjs,cjs,jsx}"],
 
   plugins: {
     "@stylistic": stylistic,
@@ -31,7 +32,7 @@ const myJavaScriptAndTypeScriptRules: ConfigWithExtends = {
     "no-magic-numbers": [
       "warn",
       {
-        ignore: [0, 1],
+        ignore: [0, 1, -1, 200, 201, 204, 400, 403, 404, 500],
       },
     ],
 
@@ -48,8 +49,10 @@ const myJavaScriptAndTypeScriptRules: ConfigWithExtends = {
         ignore: [/\.d\.ts$/],
       },
     ],
-    // I prefer being explicit when returning undefined from a function
+    // I prefer being explicit when returning undefined from a function if that function is expected to return a value | undefined
     "unicorn/no-useless-undefined": ["off"],
+    // I like the idea of no-null, but it seems overly pedantic in practice
+    "unicorn/no-null": ["off"],
   },
 }
 
@@ -116,6 +119,9 @@ export default tseslint.config([
 
   jestFileRules,
 
-  // add eslint-plugin-prettier/recommended as the LAST item in the configuration array in your eslint.config.js file so that eslint-config-prettier has the opportunity to override other configs:
+  // add eslint-plugin-prettier/recommended as the LAST item in the
+  // configuration array in your eslint.config.js file so that
+  // eslint-config-prettier has the opportunity to override other configs per
+  // https://github.com/prettier/eslint-plugin-prettier#configuration-new-eslintconfigjs
   eslintPluginPrettierRecommended,
 ])
