@@ -2,59 +2,53 @@ name: build
 
 on:
   push:
-    branches: [master]
+    branches: [master, beta]
   pull_request:
-    branches: [master]
+    branches: [master, beta]
 
 jobs:
   build_and_test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [20]
 
     steps:
-      - uses: actions/checkout@v2
+      # https://github.com/actions/checkout
+      - uses: actions/checkout@v4
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        # https://github.com/actions/setup-node
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: npm
-        run: |
-          npm ci
+      - run: npm ci
 
-      - name: build package
-        run: |
-          npm run build
+      - run: npm run build
 
-      - name: test package
-        run: |
-          npm run test
+      - run: npm run lint
+
+      - run: npm run test
 
   deploy_package:
     needs: build_and_test
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v2
+      # https://github.com/actions/checkout
+      - uses: actions/checkout@v4
 
-      - name: Use Node.js v12.x
-        uses: actions/setup-node@v1
+      - uses: actions/setup-node@v4
         with:
-          node-version: v12.x
+          node-version: 20
 
-      - name: npm
-        run: |
-          npm ci
+      - run: npm ci
 
       #- name: debug deploy_package
       #  uses: actions/bin/debug@master
 
-      - name: deploy via semantic-release
+      - run: npx semantic-release@24
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          npx semantic-release@17

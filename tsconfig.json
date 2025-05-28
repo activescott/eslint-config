@@ -1,0 +1,20 @@
+{
+  "include": ["./src/**/*", "tests/helper.ts"],
+  "exclude": [
+    "**/*.spec.ts",
+    "dist",
+    "node_modules",
+    "example/**/*",
+    "tests/**/*"
+  ],
+  "compilerOptions": {
+    "lib": ["es6"],
+    "declaration": true,
+    "moduleResolution": "node10", // because classic "is mainly present for backward compatibility." - https://github.com/Microsoft/TypeScript-Handbook/blob/master/pages/Module%20Resolution.md#classic
+    "baseUrl": ".",
+    "target": "es6",
+    "module": "es6",
+    "outDir": "dist",
+    "allowSyntheticDefaultImports": true
+  }
+}

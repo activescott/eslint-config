@@ -1,12 +1,10 @@
-module.exports = {
+export default {
   preset: "ts-jest",
   testEnvironment: "node",
   setupFiles: [],
-  globals: {
-    "ts-jest": {
-      tsConfig: "tsconfig.cjs.json"
-    }
+  transform: {
+    "^.+.spec.ts?$": ["ts-jest", { tsconfig: "tsconfig.jest.json" }],
   },
   collectCoverageFrom: ["src/**/*.ts"],
-  testPathIgnorePatterns: ["/node_modules/"]
+  testPathIgnorePatterns: ["/node_modules/"],
 }
