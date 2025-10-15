@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [master, beta]
 
+permissions:
+  id-token: write  # Required for OIDC
+  contents: read
+
 jobs:
   build_and_test:
     runs-on: ubuntu-24.04
@@ -42,6 +46,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+
+      # Ensure npm 11.5.1 or later is installed
+      - name: Update npm
+        run: npm install -g npm@latest
 
       - run: npm ci
 
