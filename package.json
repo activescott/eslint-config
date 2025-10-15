@@ -4,6 +4,10 @@
   "description": "An ESLint sharable config for TypeScript.",
   "author": "Scott Willeke <scott@willeke.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/activescott/eslint-config.git"
+  },
   "engines": {
     "node": ">=20"
   },

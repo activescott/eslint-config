@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [master, beta]
 
+permissions:
+  id-token: write  # Required for OIDC
+  contents: read
+
 jobs:
   build_and_test:
     runs-on: ubuntu-24.04
