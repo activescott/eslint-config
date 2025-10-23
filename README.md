@@ -12,7 +12,7 @@ Multiple config may be added to this package in the future as described at https
 **Step 1**: Add the following dependencies to your project:
 
 ```sh
-npm add -D @activescott/eslint-config@3 typescript-eslint@8.19.1 eslint-plugin-prettier@5.2.1 eslint-plugin-jest@28.10.0 @stylistic/eslint-plugin@2.12.1 eslint-config-prettier@9.1.0 eslint-plugin-unicorn@56.0.1
+npm add -D @activescott/eslint-config@3 typescript-eslint@8 eslint-plugin-prettier@5 eslint-plugin-jest@28 @stylistic/eslint-plugin@2 eslint-config-prettier@9 eslint-plugin-unicorn@56
 ```
 
 **Step 2**: Enter the following to create a `eslint.config.js`, `.prettierrc`, and `.prettierignore` in the root with the right content:
@@ -20,18 +20,33 @@ npm add -D @activescott/eslint-config@3 typescript-eslint@8.19.1 eslint-plugin-p
 ```sh
 printf 'import config from "@activescott/eslint-config"
 
-// add local project ignores here and they will be applied to all rules
-const ignores = []
+// Global ignores - must be in a separate config object with ONLY the ignores property
+const globalIgnores = {
+  ignores: [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/.react-router/**",
+    "**/test-data/**",
+  ],
+}
 
-const configs = config.map((c) => ({
-  ignores: [...(c.ignores ?? []), ...ignores],
-  ...c,
-}))
+const overrides = {
+  rules: {
+  },
+}
+export default [globalIgnores, ...config, overrides]
 
-export default [...configs]
 ' > eslint.config.js
 printf "semi: false\n" > .prettierrc
-printf "node_modules/\n/dist/\n/.next/\n.nyc_output/\ncoverage/\n" | tee .prettierignore
+
+printf '.prettierignore
+node_modules/
+/dist/
+/.next/
+.nyc_output/
+coverage/
+.react-router/
+'
 ```
 
 **Step 3** (optional): Add the following scripts to `package.json`:

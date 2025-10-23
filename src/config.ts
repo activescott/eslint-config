@@ -10,6 +10,8 @@ const myJavaScriptAndTypeScriptRules: ConfigWithExtends = {
   // shouldn't need to specify files: https://eslint.org/docs/latest/use/configure/configuration-files#specifying-files-and-ignores
   files: ["**/*.{ts,mts,cts,tsx}", "**/*.{js,mjs,cjs,jsx}"],
 
+  ignores: ["**/.react-router/**"],
+
   plugins: {
     "@stylistic": stylistic,
   },
