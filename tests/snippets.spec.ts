@@ -3,29 +3,18 @@ import path from "node:path"
 import { ESLint } from "eslint"
 import { findESLintConfig } from "./helper"
 
-/**
- * gets snippet files
- * @param directory the path to get all snippets in recursively.
- * @param basePath Specify a basepath if you want the returned paths to be relative to this path
- */
-function getSnippetFiles(
-  directory: string = __dirname,
-  basePath = "",
-): string[] {
+const snippetBase = path.join(__dirname, "..", "test-data", "snippets")
+
+// Recursively lists the files in `directory`, relative to `snippetBase`.
+function getSnippetFiles(directory: string): string[] {
   const entries: Dirent[] = readdirSync(directory, { withFileTypes: true })
   let snippetPaths: string[] = []
   for (const entry of entries) {
     if (entry.isFile()) {
       const fullPath = path.join(directory, entry.name)
-      const relativePath = basePath
-        ? path.relative(basePath, fullPath)
-        : fullPath
-      snippetPaths.push(relativePath)
+      snippetPaths.push(path.relative(snippetBase, fullPath))
     } else if (entry.isDirectory()) {
-      const kids: string[] = getSnippetFiles(
-        path.join(directory, entry.name),
-        basePath,
-      )
+      const kids: string[] = getSnippetFiles(path.join(directory, entry.name))
       snippetPaths = [...snippetPaths, ...kids]
     } else {
       // eslint-disable-next-line no-console
@@ -35,9 +24,7 @@ function getSnippetFiles(
   return snippetPaths
 }
 
-const snippetBase = path.join(__dirname, "..", "test-data", "snippets")
-
-test.each(getSnippetFiles(path.join(snippetBase, "should-error"), snippetBase))(
+test.each(getSnippetFiles(path.join(snippetBase, "should-error")))(
   "should error %s",
   async (snippetFile) => {
     const { warnings, errors } = await lint(snippetFile)
@@ -46,7 +33,7 @@ test.each(getSnippetFiles(path.join(snippetBase, "should-error"), snippetBase))(
   },
 )
 
-test.each(getSnippetFiles(path.join(snippetBase, "should-warn"), snippetBase))(
+test.each(getSnippetFiles(path.join(snippetBase, "should-warn")))(
   "should warn %s",
   async (snippetFile) => {
     const { warnings, errors } = await lint(snippetFile)
@@ -55,7 +42,7 @@ test.each(getSnippetFiles(path.join(snippetBase, "should-warn"), snippetBase))(
   },
 )
 
-test.each(getSnippetFiles(path.join(snippetBase, "should-pass"), snippetBase))(
+test.each(getSnippetFiles(path.join(snippetBase, "should-pass")))(
   "should pass %s",
   async (snippetFile) => {
     const { warnings, errors } = await lint(snippetFile)

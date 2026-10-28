@@ -1,4 +1,3 @@
-/* eslint-disable no-magic-numbers */
 import eslint from "@eslint/js"
 import tseslint, { type ConfigWithExtends } from "typescript-eslint"
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended"
@@ -49,6 +48,10 @@ const myJavaScriptAndTypeScriptRules: ConfigWithExtends = {
           pascalCase: true,
         },
         ignore: [/\.d\.ts$/],
+        // unicorn 79 also checks directory names by default. Directories like
+        // test-data/ and __tests__/ are conventional and can't be autofixed,
+        // so keep checking file names only, as before.
+        checkDirectories: false,
       },
     ],
     // I prefer being explicit when returning undefined from a function if that function is expected to return a value | undefined
@@ -112,7 +115,7 @@ export default tseslint.config([
   eslint.configs.recommended,
   tseslint.configs.strict,
   tseslint.configs.stylistic,
-  eslintPluginUnicorn.configs["flat/recommended"],
+  eslintPluginUnicorn.configs.recommended,
 
   myJavaScriptAndTypeScriptRules,
   myTypeScriptOnlyRules,

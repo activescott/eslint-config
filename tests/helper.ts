@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/prefer-module */
 import { existsSync } from "node:fs"
 import path from "node:path"
 

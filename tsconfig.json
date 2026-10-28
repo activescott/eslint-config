@@ -10,7 +10,7 @@
   "compilerOptions": {
     "lib": ["es6"],
     "declaration": true,
-    "moduleResolution": "node10", // because classic "is mainly present for backward compatibility." - https://github.com/Microsoft/TypeScript-Handbook/blob/master/pages/Module%20Resolution.md#classic
+    "moduleResolution": "bundler", // typescript-eslint 8.56+ only exposes some type subpaths via package.json "exports", which node10 resolution ignores
     "baseUrl": ".",
     "target": "es6",
     "module": "es6",
